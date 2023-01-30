@@ -9,13 +9,16 @@
 <body>
     <ul>
         <li><a href="{{ route('homepage') }}">Homepage</a></li> {{-- * route('the route name') --}}
-        <li><a href="{{ route('test') }}">Test</a></li>
-        <li><a href="{{ route('blog') }}">Blog</a></li>
+        <li><a href="{{ route('eshop') }}">E-Shop</a></li>
+        <li><a href="{{ route('explore') }}">Explore</a></li>
+        <li><a href=""></a>News</li>
+        <li><a href=""></a>Forums</li>
+        <li><a href=""></a>About</li>
     </ul>
     <div>
         @yield('homepage')
-        @yield('test')
-        @yield('blog')
+        @yield('eshop')
+        @yield('explore')
     </div>
 </body>
 </html>

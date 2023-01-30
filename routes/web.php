@@ -39,12 +39,12 @@ Route::get('/homepage', function () {
     return view('homepage');
 })->name('homepage'); // * ->name('') = we can call it on blade file
 
-Route::get('/test', function () {
-    return view('pages/test');
-})->name('test');
+Route::get('/eshop', function () {
+    return view('pages/eshop');
+})->name('eshop');
 
-Route::get('/blog', function () {
-    return view('pages/blog');
-})->name('blog');
+Route::get('/explore', function () {
+    return view('pages/explore');
+})->name('explore');
 
 require __DIR__.'/auth.php';
