@@ -37,14 +37,14 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/homepage', function () {
     return view('homepage');
-});
+})->name('homepage'); // * ->name('') = we can call it on blade file
 
 Route::get('/test', function () {
-    return view('test');
-});
+    return view('pages/test');
+})->name('test');
 
-Route::get('/blogs', function () {
-    return view('blogs');
-});
+Route::get('/blog', function () {
+    return view('pages/blog');
+})->name('blog');
 
 require __DIR__.'/auth.php';

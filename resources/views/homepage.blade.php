@@ -2,6 +2,6 @@
 
 @section('homepage')
     <h1>
-        HALLOO
+        HALLOO HOMPAGE
     </h1>
 @endsection

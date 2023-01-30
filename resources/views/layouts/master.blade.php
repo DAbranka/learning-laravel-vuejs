@@ -8,12 +8,14 @@
 </head>
 <body>
     <ul>
-        <li><a href="/homepage">Homepage</a></li>
-        <li><a href="/test">test</a></li>
-        <li><a href="/blogs">blogs</a></li>
+        <li><a href="{{ route('homepage') }}">Homepage</a></li> {{-- * route('the route name') --}}
+        <li><a href="{{ route('test') }}">Test</a></li>
+        <li><a href="{{ route('blog') }}">Blog</a></li>
     </ul>
     <div>
         @yield('homepage')
+        @yield('test')
+        @yield('blog')
     </div>
 </body>
 </html>
