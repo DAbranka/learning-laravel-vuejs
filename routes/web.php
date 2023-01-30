@@ -35,6 +35,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+require __DIR__.'/auth.php';
+
+
 Route::get('/homepage', function () {
     return view('homepage');
 })->name('homepage'); // * ->name('') = we can call it on blade file
@@ -47,4 +50,15 @@ Route::get('/explore', function () {
     return view('pages/explore');
 })->name('explore');
 
-require __DIR__.'/auth.php';
+Route::get('/news', function () {
+    return view('pages/news');
+})->name('news');
+
+Route::get('/forums', function () {
+    return view('pages/forums');
+})->name('forums');
+
+Route::get('/about', function () {
+    return view('pages/about');
+})->name('about');
+
