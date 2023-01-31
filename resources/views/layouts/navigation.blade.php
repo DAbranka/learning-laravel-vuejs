@@ -17,6 +17,7 @@
                     </x-nav-link>
                     
                     {{-- ! link to chirps --}}
+                    {{-- * link call index view --}}
                     <x-nav-link :href="route('chirps.index')" :active="request()->routeIs('chirps.index')">
                         {{ __('Chirps') }}
                     </x-nav-link>

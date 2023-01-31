@@ -12,11 +12,10 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    public function chirps(){
+        return $this->hasMany(Chirp::class);
+    }
+    
     protected $fillable = [
         'name',
         'email',

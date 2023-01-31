@@ -7,11 +7,7 @@ use Illuminate\Http\Request;
 
 class ChirpController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    /* ---------------------------------- INDEC --------------------------------- */
     public function index()
     {
         // return "Hello World!";
@@ -34,11 +30,19 @@ class ChirpController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    /* ---------------------------------- STORE --------------------------------- */
     public function store(Request $request)
     {
-        //
-    }
+        $validated = $request->validate([
+            'message' => 'required|string|max:255',
+        ]);
 
+        $request->user()->chirps()->create($validated);
+
+        return redirect(route('chirps.index'));
+    }
+    /* -------------------------------------------------------------------------- */
     /**
      * Display the specified resource.
      *
