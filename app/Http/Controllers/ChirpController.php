@@ -7,11 +7,15 @@ use Illuminate\Http\Request;
 
 class ChirpController extends Controller
 {
-    /* ---------------------------------- INDEC --------------------------------- */
+    /* ---------------------------------- INDEX----------------------------- */
     public function index()
     {
         // return "Hello World!";
-        return view('chirps.index') ; // * return the index view in chirps folder
+        // return view('chirps.index'); // * return the index view in chirps folder
+        return view('chirps.index', [
+            'chirps' => Chirp::with('user')->latest()->get(),
+        ]);
+        
     }
 
     /**
