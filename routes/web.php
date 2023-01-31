@@ -33,14 +33,14 @@ Route::middleware('auth')->group(function () {
 // todo CREATE a ROUTE for the chirpController with classes
 Route::resource('chirps', ChirpController::class)
 
-    // todo CREATE two ROUTES for
+        // todo CREATE two ROUTES for
         // * index: display our form and a listing of chirps.
         // * store: saving new chirps
-        ->only(['index', 'store'])
+    ->only(['index', 'store'])
 
-    // todo CREATE two ROUTES for Middleware
+        // todo CREATE two ROUTES for Middleware
         // * auth: middleware ensure that only logged-in user can access the route.
         // * verified: middleware will be used if you decide to enable email verfication.
-        ->middleware(['auth', 'verified']);
+    ->middleware(['auth', 'verified']);
 
     require __DIR__.'/auth.php';
