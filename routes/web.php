@@ -35,8 +35,10 @@ Route::resource('chirps', ChirpController::class)
 
         // todo CREATE two ROUTES for
         // * index: display our form and a listing of chirps.
-        // * store: saving new chirps
-    ->only(['index', 'store'])
+        // * store: saving new chirps.
+        // * edit: will display the form for editing a chirp.
+        // * update: will accpet the data from the form and update the model.
+    ->only(['index', 'store', 'edit', 'update'])
 
         // todo CREATE two ROUTES for Middleware
         // * auth: middleware ensure that only logged-in user can access the route.

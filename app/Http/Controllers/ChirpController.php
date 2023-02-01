@@ -18,14 +18,10 @@ class ChirpController extends Controller
         
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    /* --------------------------------- CREATE --------------------------------- */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -57,30 +53,34 @@ class ChirpController extends Controller
     {
         //
     }
+    /* -------------------------------------------------------------------------- */
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Chirp  $chirp
-     * @return \Illuminate\Http\Response
-     */
+    /* ---------------------------------- EDIT ---------------------------------- */
     public function edit(Chirp $chirp)
     {
-        //
-    }
+        $this->authorize('update', $chirp);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Chirp  $chirp
-     * @return \Illuminate\Http\Response
-     */
+        return view('chirps.edit', [
+            'chirp' => $chirp,
+        ]);
+    }
+    /* -------------------------------------------------------------------------- */
+
+    /* --------------------------------- UPDATE --------------------------------- */
     public function update(Request $request, Chirp $chirp)
     {
-        //
+        $this->authorize('update', $chirp);
+
+        $validated = $request->validated([
+            'message' => 'required|string|max:255',
+        ]);
+
+        $chirp->update($validated);
+
+        return redirect(route('chirps.index'));
     }
 
+    /* -------------------------------------------------------------------------- */
     /**
      * Remove the specified resource from storage.
      *
