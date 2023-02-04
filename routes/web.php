@@ -23,7 +23,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('welcome');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -36,6 +36,11 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+// * PAGE TWO TEST !
+Route::get('/page_two', function () {
+    return Inertia::render('Page_two');
+})->name('page_two');
 
 
 Route::get('/homepage', function () {
