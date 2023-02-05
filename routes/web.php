@@ -16,6 +16,8 @@ use Inertia\Inertia;
 |
 */
 
+/* ------------------------- LARAVEL DEFAULT PACKAGE ------------------------ */
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -37,12 +39,30 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+/* -------------------------------------------------------------------------- */
+
+
+/* ---------------------------- TESTING ROUTES ! ---------------------------- */
+
 // * PAGE TWO TEST !
 Route::get('/page_two', function () {
     return Inertia::render('Page_two');
 })->name('page_two');
 
+// * RETURN JSON FILE
+Route::get('json', function () {
+    return ["name" => "Abranka"];
+});
 
+// * LARACAST EXAMPLE PAGE
+
+Route::get('myblog', function () {
+    return Inertia::render('MyBlog');
+})->name('myblog');
+/* -------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------- */
 Route::get('/homepage', function () {
     return view('homepage');
 })->name('homepage'); // * ->name('') = we can call it on blade file
@@ -66,4 +86,4 @@ Route::get('/forums', function () {
 Route::get('/about', function () {
     return view('pages/about');
 })->name('about');
-
+/* -------------------------------------------------------------------------- */
