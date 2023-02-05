@@ -3,7 +3,9 @@
 </script>
 
 <template>
-    <title>My Blog</title>
+    <head>
+        <title>My Blog</title>
+    </head>
     <header>
         <h1>My Blog</h1>
     </header>
