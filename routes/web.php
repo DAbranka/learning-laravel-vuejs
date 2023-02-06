@@ -36,3 +36,12 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+/* -------------------------------------------------------------------------- */
+/*                             LARACAST - MY BLOG                             */
+/* -------------------------------------------------------------------------- */
+
+// * MY BLOG ROUTE
+Route::get('myblog', function () {
+    return view('Pages/Posts');
+})->name('myblog');
