@@ -25,6 +25,30 @@
                 soluta!
             </p>
         </article>
+
+        <article>
+            <h1>
+                My Second Post
+            </h1>
+
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum culpa, sunt facilis laborum autem
+                quae hic id unde ipsam eligendi deserunt nihil iusto nobis, voluptatibus omnis facere, totam officiis
+                soluta!
+            </p>
+        </article>
+
+        <article>
+            <h1>
+                My Third Post
+            </h1>
+
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum culpa, sunt facilis laborum autem
+                quae hic id unde ipsam eligendi deserunt nihil iusto nobis, voluptatibus omnis facere, totam officiis
+                soluta!
+            </p>
+        </article>
     </main>
     <footer></footer>
 </body>
