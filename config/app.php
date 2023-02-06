@@ -211,5 +211,8 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
-
+    [
+        'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class,
+    ]
+    
 ];
