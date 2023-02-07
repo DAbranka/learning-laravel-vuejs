@@ -43,18 +43,20 @@ Route::get('posts', function () {
 
 // * WILDCARD = {something} | here is {post}
 // * $slug = A slug is part of (if not all of) the path in a url
+
 Route::get('posts/{post}', function ($slug) {
 
 
     //! -------------------------------- POST VARIABLES ------------------------------- */
 
     // todo GET content FROM posts/my-first-post & put it in variable
-
     // * __DIR__ = The Directory gives the PATH to the CONTENT.
+    
     // $post = file_get_contents(__DIR__ . '/../resources/views/Pages/posts/my-first-post.html');
+    
     // todo REPLACE posts/my-first-post -> posts/{$slug}
+    
     $path = __DIR__ . "/../resources/views/Pages/posts/{$slug}.html";
-
     
     // ! CONDITION
 
@@ -73,12 +75,13 @@ Route::get('posts/{post}', function ($slug) {
 
     }
 
+    
     // todo
     $post = file_get_contents($path);
 
 
     //! ------------------------------- POST RETURN ------------------------------ */
-    return view('Pages/posts/post', [
+    return view('Pages/post', [
 
         'post' => $post // * VARIABLE POST! >> post.blade
 

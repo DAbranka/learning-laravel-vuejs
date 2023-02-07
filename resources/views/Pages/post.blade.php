@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,13 +9,17 @@
     <title>My Blog</title>
 </head>
 
-<header>
-    <h1>My Posts!</h1>
-</header>
+<body>
+    <header>
+        <h1>My Posts!</h1>
+    </header>
 
-{{-- * THE POST! --}}
-<article>
-    <?= $post; ?> {{-- *PASS VARIABLE POST FROM ROUTE HERE! --}}
-</article>
+    {{-- * THE POST! --}}
+    <article>
+        <?= $post ?> {{-- *PASS VARIABLE POST FROM ROUTE HERE! --}}
+    </article>
 
-<a href="/posts">Go back!</a>
+    <a href="/posts">Go back!</a>
+</body>
+
+</html>
