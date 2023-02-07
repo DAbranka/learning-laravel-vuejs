@@ -10,6 +10,7 @@
     <h1>My Posts!</h1>
 </header>
 
+{{-- * THE POST! --}}
 <article>
     <?= $post; ?> {{-- *PASS VARIABLE POST FROM ROUTE HERE! --}}
 </article>

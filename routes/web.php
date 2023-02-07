@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 /* -------------------------------------------------------------------------- */
 /*                                    POSTS                                   */
@@ -40,9 +40,18 @@ Route::get('posts', function () {
 })->name('posts');
 
 // * POST
-Route::get('post', function(){
+Route::get('post', function () {
+
+    /* -------------------------------- POST VARIABLES ------------------------------- */
+
+    // todo GET content FROM posts/my-first-post & put it in variable
+
+    // * __DIR__ = The Directory gives the PATH to the CONTENT.
+    $post = file_get_contents(__DIR__ . '/../resources/views/Pages/posts/my-first-post.html');
+
+    /* ------------------------------- POST RETURN ------------------------------ */
     return view('Pages/post', [
-        'post' => '<h1>Hello World!</h1>' // * VARIABLE POST! >> post.blade
+        'post' => $post // * VARIABLE POST! >> post.blade
     ]);
 });
 
