@@ -74,7 +74,6 @@ Route::get('posts/{post}', function ($slug) {
         // return redirect('posts');
 
     }
-
     
     // todo
     $post = file_get_contents($path);
