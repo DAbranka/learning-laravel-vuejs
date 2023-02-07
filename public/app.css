@@ -1,7 +1,19 @@
-body{
-    background-color: wheat;
+body {
+    background-color: rgb(239, 239, 239);
     color: rgb(21, 21, 21);
     max-width: 600px;
     margin: auto;
     font-family: sans-serif;
+}
+
+p {
+    line-height: 1.7;
+}
+
+/* * EVERY Articles EXCEPT the FIRST one */
+article + article {
+    color: red;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid gray;
 }

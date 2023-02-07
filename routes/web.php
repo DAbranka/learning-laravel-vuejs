@@ -30,7 +30,20 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+/* -------------------------------------------------------------------------- */
+/*                                    POSTS                                   */
+/* -------------------------------------------------------------------------- */
+
 // * POSTS
 Route::get('posts', function () {
-    return "Posts";
+    return view("Pages/Posts");
 })->name('posts');
+
+// * POST
+Route::get('post', function(){
+    return view('Pages/post', [
+        'post' => '<h1>Hello World!</h1>' // * VARIABLE POST! >> post.blade
+    ]);
+});
+
+/* -------------------------------------------------------------------------- */
