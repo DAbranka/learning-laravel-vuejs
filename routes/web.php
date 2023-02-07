@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,7 +52,7 @@ Route::get('posts/{post}', function ($slug) {
     // todo Find a post by it's slug and pass it to a view called "post"
     
     // todo FIND a post by it's slug
-    $post = Post::find($slug);
+    $post = Post::find($slug); // * Post = Class Model
 
     // todo PASS to view called "post"
     return view('post', [
@@ -109,7 +110,7 @@ Route::get('posts/{post}', function ($slug) {
 
 //  * where = on which page or part we want constrains
 //  * [A-z]+ = look for anything from A to z | '+' = find one or more of an upper or lower case letter
-// ->where('post', '[A-z_\-]+')
+->where('post', '[A-z_\-]+')
 
 // * Alternative: whereAlpha = upper or lower case (ctrl+click on it to see other 'where')
 // ->whereAlpha('post')
