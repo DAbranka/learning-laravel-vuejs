@@ -46,6 +46,19 @@ Route::get('posts', function () {
 
 Route::get('posts/{post}', function ($slug) {
 
+    // ! CLEANER CODE
+
+    // todo Find a post by it's slug and pass it to a view called "post"
+    
+    // todo FIND a post by it's slug
+    $post = Post::find($slug);
+
+    // todo PASS to view called "post"
+    return view('post', [
+        'post' => $post
+    ]);
+
+    // ! OLD CODE
 
     //! -------------------------------- POST VARIABLES ------------------------------- */
 
@@ -56,7 +69,7 @@ Route::get('posts/{post}', function ($slug) {
     
     // todo REPLACE posts/my-first-post -> posts/{$slug}
     
-    $path = __DIR__ . "/../resources/views/Pages/posts/{$slug}.html";
+    // $path = __DIR__ . "/../resources/views/Pages/posts/{$slug}.html";
     
     // ! CONDITION
 
@@ -64,29 +77,29 @@ Route::get('posts/{post}', function ($slug) {
 
     // todo IF PATH DON'T EXIST!
         // todo SHOW ERROR MESSAGE
-    if(! file_exists($path)){
+    // if(! file_exists($path)){
 
         // * dd = die and dump!
         // dd('file does not exist');
         // * Dump, Die, Debug!
         // ddd('files does not exist');
         // * 404 | Not Found
-        abort(404);
+        // abort(404);
         // * REDIRECT TO HOMEPAGE
         // return redirect('posts');
 
-    }
+    // }
     
-    // todo
-    $post = file_get_contents($path);
+    // todo $post = Get content from $path
+    // $post = file_get_contents($path);
 
 
     //! ------------------------------- POST RETURN ------------------------------ */
-    return view('Pages/post', [
+    // return view('Pages/post', [
 
-        'post' => $post // * VARIABLE POST! >> post.blade
+        // 'post' => $post // * 'post' = content from '$path'! >> post.blade
 
-    ]);
+    // ]);
 
     // todo RETURN $slug = the part of url
     // return $slug;
@@ -96,7 +109,7 @@ Route::get('posts/{post}', function ($slug) {
 
 //  * where = on which page or part we want constrains
 //  * [A-z]+ = look for anything from A to z | '+' = find one or more of an upper or lower case letter
-->where('post', '[A-z_\-]+')
+// ->where('post', '[A-z_\-]+')
 
 // * Alternative: whereAlpha = upper or lower case (ctrl+click on it to see other 'where')
 // ->whereAlpha('post')

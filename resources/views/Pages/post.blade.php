@@ -16,7 +16,7 @@
 
     {{-- * THE POST! --}}
     <article>
-        <?= $post ?> {{-- *PASS VARIABLE POST FROM ROUTE HERE! --}}
+        <?= $post ?> {{-- *PATH CONTENT --}}
     </article>
 
     <a href="/posts">Go back!</a>
