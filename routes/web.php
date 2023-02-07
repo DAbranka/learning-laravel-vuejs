@@ -34,13 +34,16 @@ require __DIR__ . '/auth.php';
 /*                                    POSTS                                   */
 /* -------------------------------------------------------------------------- */
 
-// * POSTS
+/* ------------------------------- ROUTE POSTS ------------------------------ */
 Route::get('posts', function () {
     return view("Pages/Posts");
 })->name('posts');
 
-// * POST
-Route::get('post', function () {
+/* ------------------------------- ROUTE POST ------------------------------- */
+
+// * WILDCARD = {something} | here is {post}
+// * $slug = A slug is part of (if not all of) the path in a url
+Route::get('posts/{post}', function ($slug) {
 
     /* -------------------------------- POST VARIABLES ------------------------------- */
 
@@ -50,9 +53,12 @@ Route::get('post', function () {
     $post = file_get_contents(__DIR__ . '/../resources/views/Pages/posts/my-first-post.html');
 
     /* ------------------------------- POST RETURN ------------------------------ */
-    return view('Pages/post', [
-        'post' => $post // * VARIABLE POST! >> post.blade
-    ]);
+    // return view('Pages/post', [
+    //     'post' => $post // * VARIABLE POST! >> post.blade
+    // ]);
+
+    // todo RETURN $slug = the part of url
+    return $slug;
 });
 
 /* -------------------------------------------------------------------------- */
