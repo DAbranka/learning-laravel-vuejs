@@ -17,7 +17,6 @@
     <main>
         @yield('posts')
         @yield('post')
-        @yield('my-first-post')
     </main>
 </body>
 
