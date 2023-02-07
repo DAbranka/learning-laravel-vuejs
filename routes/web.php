@@ -60,6 +60,8 @@ Route::get('posts/{post}', function ($slug) {
     
     // ! CONDITION
 
+    // ddd($path);
+
     // todo IF PATH DON'T EXIST!
         // todo SHOW ERROR MESSAGE
     if(! file_exists($path)){
@@ -88,6 +90,16 @@ Route::get('posts/{post}', function ($slug) {
 
     // todo RETURN $slug = the part of url
     // return $slug;
-});
+})
+
+// todo ADD CONSTRAINS
+
+//  * where = on which page or part we want constrains
+//  * [A-z]+ = look for anything from A to z | '+' = find one or more of an upper or lower case letter
+->where('post', '[A-z_\-]+')
+
+// * Alternative: whereAlpha = upper or lower case (ctrl+click on it to see other 'where')
+// ->whereAlpha('post')
+;
 
 /* -------------------------------------------------------------------------- */
