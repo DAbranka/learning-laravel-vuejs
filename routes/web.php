@@ -94,5 +94,15 @@ Route::get('/about', function () {
 /* -------------------------------------------------------------------------- */
 
 Route::get('/posts', function () {
-    return view('pages/posts/posts');
+    return view('/pages/posts');
 })->name('posts');
+
+Route::get('/posts/{post}', function ($slug) {
+
+    $path = __DIR__ . ("/../resources/views/pages/posts/{$slug}.blade.php");
+    $post = file_get_contents($path);
+    
+    return view('pages/post', [
+        'post' => $post
+    ]);
+})->name('post');
