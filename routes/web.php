@@ -55,7 +55,7 @@ Route::get('posts/{post}', function ($slug) {
     $post = Post::find($slug); // * Post = Class Model
 
     // todo PASS to view called "post"
-    return view('post', [
+    return view('Pages/post', [
         'post' => $post
     ]);
 
