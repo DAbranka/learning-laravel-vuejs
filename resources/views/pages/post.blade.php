@@ -4,4 +4,6 @@
     <article>
         <?= $post ?>
     </article>
+
+    <a href="/posts">Go Back</a>
 @endsection
