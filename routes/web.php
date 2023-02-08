@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Post;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -93,16 +94,20 @@ Route::get('/about', function () {
 //!                                     MY BLOG                               */
 /* -------------------------------------------------------------------------- */
 
+//! ---------------------------------- POSTS --------------------------------- */
 Route::get('/posts', function () {
     return view('/pages/posts');
 })->name('posts');
 
+//! ---------------------------------- POST --------------------------------- */
 Route::get('/posts/{post}', function ($slug) {
 
-    $path = __DIR__ . ("/../resources/views/pages/posts/{$slug}.blade.php");
-    $post = file_get_contents($path);
+    // $path = __DIR__ . ("/../resources/views/pages/posts/{$slug}.blade.php");
+    // $post = file_get_contents($path);
+
+    $post = Post::find($slug);
     
     return view('pages/post', [
         'post' => $post
     ]);
-})->name('post');
+})->where('post','[A-z_\-]+')->name('post');
