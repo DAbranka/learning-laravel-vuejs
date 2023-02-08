@@ -13,11 +13,12 @@
     <header>
         <h1>My Posts!</h1>
     </header>
-
-    {{-- * THE POST! --}}
-    <article>
-        <?= $post ?> {{-- *PATH CONTENT --}}
-    </article>
+    <?php foreach ($posts as $post) : ?>
+        <article>
+            <?= $post; ?> {{-- *PATH CONTENT --}}
+        </article>
+    <?php endforeach; ?>
+    
 
     <a href="/posts">Go back!</a>
 </body>

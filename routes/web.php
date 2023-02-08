@@ -37,7 +37,15 @@ require __DIR__ . '/auth.php';
 
 //! ------------------------------- ROUTE POSTS ------------------------------ */
 Route::get('posts', function () {
-    return view("Pages/Posts");
+    // return view("Pages/Posts");
+
+    $posts = Post::all();
+
+    ddd($posts[0]);
+    
+    return view("Pages/Posts", [
+        'posts' => $posts
+    ]);
     // return Post::find('my-first-post'); // * We can return any post anywhere
 })->name('posts');
 
