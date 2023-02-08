@@ -105,9 +105,9 @@ Route::get('/posts/{post}', function ($slug) {
     // $path = __DIR__ . ("/../resources/views/pages/posts/{$slug}.blade.php");
     // $post = file_get_contents($path);
 
-    $post = Post::find($slug);
+    // $post = Post::find($slug);
     
     return view('pages/post', [
-        'post' => $post
+        'post' => Post::find($slug)
     ]);
 })->where('post','[A-z_\-]+')->name('post');
