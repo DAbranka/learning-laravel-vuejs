@@ -11,8 +11,9 @@ class Post extends Model
 
     public static function find($slug){
 
-        if (!file_exists($path = __DIR__ . "/../resources/posts/{$slug}.blade.php")){
-            return redirect('/posts');
+        if (!file_exists($path = resource_path("views/pages/posts/{$slug}.blade.php"))){
+            // return redirect('/posts');
+            return abort(404);
         }
         
         return cache()->remember("posts.{$slug}",1200, fn() => file_get_contents($path));
