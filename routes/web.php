@@ -38,6 +38,7 @@ require __DIR__ . '/auth.php';
 //! ------------------------------- ROUTE POSTS ------------------------------ */
 Route::get('posts', function () {
     return view("Pages/Posts");
+    // return Post::find('my-first-post'); // * We can return any post anywhere
 })->name('posts');
 
 //! ------------------------------- ROUTE POST ------------------------------- */
@@ -52,14 +53,15 @@ Route::get('posts/{post}', function ($slug) {
     // todo Find a post by it's slug and pass it to a view called "post"
     
     // todo FIND a post by it's slug
-    $post = Post::find($slug); // * Post = Class Model
+    // $post = Post::find($slug); // * Post = Class Model
 
-    // todo PASS to view called "post"
+    // todo CREATE model class Post
+    // todo PASS to view called "post" to Class Post
     return view('Pages/post', [
-        'post' => $post
+        'post' => Post::find($slug)
     ]);
 
-    // ! OLD CODE
+    // ! OLD CODE   
 
     //! -------------------------------- POST VARIABLES ------------------------------- */
 
