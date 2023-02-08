@@ -9,5 +9,11 @@ class Message extends Model
 {
     use HasFactory;
 
-    
+    public static function find(){
+
+        $post = resource_path("/views/pages/example.blade.php");
+
+        return;
+
+    }
 }

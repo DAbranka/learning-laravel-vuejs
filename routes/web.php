@@ -46,10 +46,10 @@ require __DIR__.'/auth.php';
 /* ---------------------------- TESTING ROUTES ! ---------------------------- */
 
 // * PAGE TWO TEST !
-Route::get('/page_two', function () {
+Route::get('/{page_two}', function ($slug) {
 
     return Inertia::render('Page_two', [
-        'page_two' => Message::find('')
+        'page_two' => Message::find($slug)
     ]);
 })->name('page_two');
 
