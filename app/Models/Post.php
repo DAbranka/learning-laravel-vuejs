@@ -10,6 +10,10 @@ class Post extends Model
 {
     use HasFactory;
 
+    public static function all(){
+        return;
+    }
+
     public static function find($slug){
 
         if (!file_exists($path = resource_path("views/pages/posts/{$slug}.blade.php"))){
