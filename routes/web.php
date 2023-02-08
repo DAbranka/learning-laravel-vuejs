@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Message;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -46,7 +47,10 @@ require __DIR__.'/auth.php';
 
 // * PAGE TWO TEST !
 Route::get('/page_two', function () {
-    return Inertia::render('Page_two');
+
+    return Inertia::render('Page_two', [
+        'page_two' => Message::find('')
+    ]);
 })->name('page_two');
 
 // * RETURN JSON FILE
