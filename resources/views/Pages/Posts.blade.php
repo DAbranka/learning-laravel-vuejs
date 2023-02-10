@@ -49,6 +49,17 @@
                 soluta!
             </p>
         </article>
+        <article>
+            <h1>
+                <a href="/posts/my-third-post">My Fourth Post</a>
+            </h1>
+            
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum culpa, sunt facilis laborum autem
+                quae hic id unde ipsam eligendi deserunt nihil iusto nobis, voluptatibus omnis facere, totam officiis
+                soluta!
+            </p>
+        </article>
     </main>
     <footer></footer>
 </body>

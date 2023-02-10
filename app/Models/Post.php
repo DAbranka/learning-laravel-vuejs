@@ -11,9 +11,14 @@ class Post extends Model
 {
     use HasFactory;
 
-    public static function all()
+    public static function all($columns = ['*'])
     {
-        return File::files(resource_path("posts/"));
+        $files = File::files(resource_path('views/Pages/posts'));
+
+        // * Use of array_map to get every posts content in the debug!
+        return array_map(function($file){
+            return $file->getContents();
+        },$files);
     }
 
     public static function find($slug){

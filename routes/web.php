@@ -40,8 +40,11 @@ Route::get('posts', function () {
     // return view("Pages/Posts");
 
     $posts = Post::all();
-
-    ddd($posts[0]);
+    
+    // * dump, die, debug $posts 
+    // ddd($posts);
+    // ddd($posts[0]->getFileName());
+    // ddd($posts[0]->getContents());
     
     return view("Pages/Posts", [
         'posts' => $posts
@@ -54,7 +57,7 @@ Route::get('posts', function () {
 // * WILDCARD = {something} | here is {post}
 // * $slug = A slug is part of (if not all of) the path in a url
 
-Route::get('posts/{post}', function ($slug) {
+Route::get('posts/{post}', function ($id) {
 
     // ! CLEANER CODE
 
@@ -66,7 +69,7 @@ Route::get('posts/{post}', function ($slug) {
     // todo CREATE model class Post
     // todo PASS to view called "post" to Class Post
     return view('Pages/post', [
-        'post' => Post::find($slug)
+        'post' => Post::find($id)
     ]);
 
     // ! OLD CODE   
