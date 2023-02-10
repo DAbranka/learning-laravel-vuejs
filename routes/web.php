@@ -46,16 +46,31 @@ Route::get('posts', function () {
     //     resource_path('posts/my-fourth-post.html')
     // );
 
-    $files = File::files(resource_path('views/Pages/posts'));
+    $files = File::files(resource_path('views/Pages/posts/'));
+
+    // $documents[];
+
+    foreach ($files as $file) {
+        $documents = YamlFrontMatter::parseFile($file);
+
+        $posts[] = new Post(
+            $documents->title,
+            $documents->excerpt,
+            $documents->date,
+            $documents->body,
+        );
+    }
+
+    ddd($posts[0]->title);
 
     // ddd($document);
     // $posts = Post::all();
-    
+
     // * dump, die, debug $posts 
     // ddd($posts);
     // ddd($posts[0]->getFileName());
     // ddd($posts[0]->getContents());
-    
+
     // return view("Pages/Posts", [
     //     'posts' => $posts
     // ]);
@@ -72,7 +87,7 @@ Route::get('posts/{post}', function ($id) {
     // ! CLEANER CODE
 
     // todo Find a post by it's slug and pass it to a view called "post"
-    
+
     // todo FIND a post by it's slug
     // $post = Post::find($slug); // * Post = Class Model
 
@@ -88,32 +103,32 @@ Route::get('posts/{post}', function ($id) {
 
     // todo GET content FROM posts/my-first-post & put it in variable
     // * __DIR__ = The Directory gives the PATH to the CONTENT.
-    
+
     // $post = file_get_contents(__DIR__ . '/../resources/views/Pages/posts/my-first-post.html');
-    
+
     // todo REPLACE posts/my-first-post -> posts/{$slug}
-    
+
     // $path = __DIR__ . "/../resources/views/Pages/posts/{$slug}.html";
-    
+
     // ! CONDITION
 
     // ddd($path);
 
     // todo IF PATH DON'T EXIST!
-        // todo SHOW ERROR MESSAGE
+    // todo SHOW ERROR MESSAGE
     // if(! file_exists($path)){
 
-        // * dd = die and dump!
-        // dd('file does not exist');
-        // * Dump, Die, Debug!
-        // ddd('files does not exist');
-        // * 404 | Not Found
-        // abort(404);
-        // * REDIRECT TO HOMEPAGE
-        // return redirect('posts');
+    // * dd = die and dump!
+    // dd('file does not exist');
+    // * Dump, Die, Debug!
+    // ddd('files does not exist');
+    // * 404 | Not Found
+    // abort(404);
+    // * REDIRECT TO HOMEPAGE
+    // return redirect('posts');
 
     // }
-    
+
     // todo $post = Get content from $path
     // $post = file_get_contents($path);
 
@@ -121,7 +136,7 @@ Route::get('posts/{post}', function ($id) {
     //! ------------------------------- POST RETURN ------------------------------ */
     // return view('Pages/post', [
 
-        // 'post' => $post // * 'post' = content from '$path'! >> post.blade
+    // 'post' => $post // * 'post' = content from '$path'! >> post.blade
 
     // ]);
 
@@ -129,14 +144,14 @@ Route::get('posts/{post}', function ($id) {
     // return $slug;
 })
 
-// todo ADD CONSTRAINS
+    // todo ADD CONSTRAINS
 
-//  * where = on which page or part we want constrains
-//  * [A-z]+ = look for anything from A to z | '+' = find one or more of an upper or lower case letter
-->where('post', '[A-z_\-]+')
+    //  * where = on which page or part we want constrains
+    //  * [A-z]+ = look for anything from A to z | '+' = find one or more of an upper or lower case letter
+    ->where('post', '[A-z_\-]+')
 
-// * Alternative: whereAlpha = upper or lower case (ctrl+click on it to see other 'where')
-// ->whereAlpha('post')
+    // * Alternative: whereAlpha = upper or lower case (ctrl+click on it to see other 'where')
+    // ->whereAlpha('post')
 ;
 
 /* -------------------------------------------------------------------------- */
