@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use League\CommonMark\Extension\FrontMatter\Data\LibYamlFrontMatterParser;
+use Spatie\YamlFrontMatter\YamlFrontMatter;
 use Symfony\Component\Translation\Dumper\YamlFileDumper;
 
 /*
@@ -41,9 +42,14 @@ require __DIR__ . '/auth.php';
 Route::get('posts', function () {
     // return view("Pages/Posts");
 
-    
+    // $document = YamlFrontMatter::parseFile(
+    //     resource_path('posts/my-fourth-post.html')
+    // );
 
-    $posts = Post::all();
+    $files = File::files(resource_path('views/Pages/posts'));
+
+    // ddd($document);
+    // $posts = Post::all();
     
     // * dump, die, debug $posts 
     // ddd($posts);
