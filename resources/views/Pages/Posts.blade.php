@@ -51,7 +51,7 @@
         </article>
         <article>
             <h1>
-                <a href="/posts/my-third-post">My Fourth Post</a>
+                <a href="/posts/my-fourth-post">My Fourth Post</a>
             </h1>
             
             <p>
