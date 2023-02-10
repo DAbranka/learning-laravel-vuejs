@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use League\CommonMark\Extension\FrontMatter\Data\LibYamlFrontMatterParser;
+use Symfony\Component\Translation\Dumper\YamlFileDumper;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +41,8 @@ require __DIR__ . '/auth.php';
 Route::get('posts', function () {
     // return view("Pages/Posts");
 
+    
+
     $posts = Post::all();
     
     // * dump, die, debug $posts 
@@ -46,9 +50,9 @@ Route::get('posts', function () {
     // ddd($posts[0]->getFileName());
     // ddd($posts[0]->getContents());
     
-    return view("Pages/Posts", [
-        'posts' => $posts
-    ]);
+    // return view("Pages/Posts", [
+    //     'posts' => $posts
+    // ]);
     // return Post::find('my-first-post'); // * We can return any post anywhere
 })->name('posts');
 
